@@ -319,7 +319,44 @@ body.home #main
   backdrop-filter: blur(16px) saturate(180%)
   -webkit-backdrop-filter: blur(16px) saturate(180%)
   border: 1px solid rgba(255, 255, 255, 0.06)
+  overflow: hidden
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease
+
+// Card with cover image — remove top padding, cover sits flush at top
+.post-card-inner.has-cover
+  padding-top: 0
+
+// Cover image strip — 16:9, dark overlay
+.post-card-cover
+  position: relative
+  margin: 0 -26px 18px  // negative side margins to reach card edges
+  aspect-ratio: 16 / 9
+  overflow: hidden
+  background: #0a0f1a
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    display: block
+    opacity: 0.55
+    transition: opacity 0.35s ease, transform 0.35s ease
+  // Dark gradient overlay — bottom fades into card body
+  &::after
+    content: ""
+    position: absolute
+    inset: 0
+    background: linear-gradient(to bottom, rgba(8, 11, 20, 0.1), rgba(8, 11, 20, 0.7))
+    pointer-events: none
+
+.post-card:hover .post-card-cover img
+  opacity: 0.65
+  transform: scale(1.03)
+
+// Mobile: cover becomes narrower
+@media mq-mobile
+  .post-card-cover
+    margin: 0 -18px 14px
+    aspect-ratio: 16 / 9
 
 .post-card:hover .post-card-inner
   transform: translateY(-2px)

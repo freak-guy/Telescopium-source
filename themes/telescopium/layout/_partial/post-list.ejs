@@ -8,7 +8,13 @@
   <div class="post-list-grid">
     <% page.posts.each(function(post){ %>
       <article class="post-card h-entry" itemscope itemtype="https://schema.org/BlogPosting">
-        <div class="post-card-inner">
+        <div class="post-card-inner<% if (post.cover){ %> has-cover<% } %>">
+          <!-- Cover image (if set in front-matter) -->
+          <% if (post.cover){ %>
+            <div class="post-card-cover">
+              <img src="<%- post.cover %>" alt="<%= post.title %>" loading="lazy">
+            </div>
+          <% } %>
           <!-- Date -->
           <a href="<%- url_for(post.path) %>" class="post-card-date">
             <time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY · MM · DD') %></time>
