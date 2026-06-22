@@ -1,0 +1,10 @@
+{
+  "name": "telescopium-blog-local-admin",
+  "private": true,
+  "type": "module",
+  "description": "Telescopium Blog 本地图形化发文工作台",
+  "dependencies": {
+    "express": "^4.21.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

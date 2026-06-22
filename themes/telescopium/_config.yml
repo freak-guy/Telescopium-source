@@ -3,26 +3,25 @@
 # ===============
 # Navigation menu
 menu:
-  Home: /
-  Blog: /archives
-  Research: /archives
-  Tools: https://tools.telescopium.top
-  AI: /archives
-  About: /about
+  博客: /archives
+  科研: /archives
+  医学: /archives
+  AI 札记: /archives
+  个人: /archives
+  关于: /about
 # RSS link
 rss: /atom.xml
 # Path of title banner image of page top
 banner: ""
 # Subtitle of page top
-subtitle: "Observe · Think · Build"
+subtitle: "医学 · 科研 · AI · 札记"
 # Header links with icon, specified links will appear at the top right corner of the page
 links:
-  github: https://github.com/
 
 # ===============
 # Content
 # ===============
-excerpt_link: Read More
+excerpt_link: 阅读全文
 fancybox: true
 
 # ===============
@@ -30,7 +29,7 @@ fancybox: true
 # ===============
 copyright: |-
   Telescopium © 2026<br>
-  Medicine · Research · AI
+  医学 · 科研 · AI · 札记
 
 # ===============
 # Sidebar

@@ -5,8 +5,10 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "new:post": "./new-post.sh",
+    "preview": "hexo clean && hexo generate && hexo server -p 4001",
+    "deploy:server": "./deploy.sh"
   },
   "hexo": {
     "version": "8.1.1"

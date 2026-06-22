@@ -1,17 +1,187 @@
 // ===============
-// Telescopium Liquid Glass Comments
+// Telescopium Comments — Deep Space Luxury
 // ===============
 
-#comments
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))
-  backdrop-filter: blur(20px) saturate(180%)
-  -webkit-backdrop-filter: blur(20px) saturate(180%)
-  border: 1px solid rgba(255, 255, 255, 0.1)
-  border-radius: 20px
-  padding: article-padding
+.post-comments
   margin: block-margin 0
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 16px 48px rgba(0, 0, 0, 0.28)
-  a
-    color: #60A5FA
+
+// ── Section head ──
+.comments-head
+  margin-bottom: 28px
+
+.comments-title
+  font-size: 1.15em
+  font-weight: 700
+  color: color-text-primary
+  margin: 0 0 8px
+  letter-spacing: 0.3px
+
+.comments-hint
+  font-size: 0.82em
+  color: color-text-muted
+  margin: 0
+  line-height: 1.6
+
+// ── Form ──
+.comment-form
+  margin-bottom: 36px
+
+.comment-form-fields
+  display: flex
+  flex-direction: column
+  gap: 12px
+  margin-bottom: 16px
+
+.comment-input,
+.comment-textarea
+  width: 100%
+  padding: 12px 16px
+  border-radius: 12px
+  background: rgba(15, 23, 42, 0.62)
+  backdrop-filter: blur(12px) saturate(180%)
+  -webkit-backdrop-filter: blur(12px) saturate(180%)
+  border: 1px solid rgba(148, 163, 184, 0.24)
+  color: #F8FAFC
+  font-family: font-sans
+  font-size: 0.9em
+  line-height: 1.6
+  transition: border-color 0.25s ease, box-shadow 0.25s ease
+  outline: none
+  resize: vertical
+
+  &::placeholder
+    color: #94A3B8
+    font-size: 0.9em
+
+  &:focus
+    border-color: rgba(96, 165, 250, 0.72)
+    box-shadow:
+      0 0 0 3px rgba(59, 130, 246, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06)
+
+// ── Honeypot (hidden) ──
+.comment-honeypot
+  position: absolute
+  left: -9999px
+  opacity: 0
+  height: 0
+  width: 0
+  pointer-events: none
+  tab-index: -1
+
+// ── Submit row ──
+.comment-form-actions
+  display: flex
+  align-items: center
+  gap: 14px
+  flex-wrap: wrap
+
+.comment-btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  padding: 10px 28px
+  border-radius: 24px
+  font-size: 0.88em
+  font-weight: 500
+  letter-spacing: 0.5px
+  color: #FFFFFF
+  background: linear-gradient(135deg, #60A5FA, #8B5CF6)
+  border: 1px solid rgba(147, 197, 253, 0.35)
+  cursor: pointer
+  transition: all 0.3s ease
+  box-shadow: 0 12px 34px rgba(59, 130, 246, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15)
+
+  &:hover
+    background: linear-gradient(135deg, #93C5FD, #A78BFA)
+    border-color: rgba(147, 197, 253, 0.5)
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 18px 44px rgba(59, 130, 246, 0.36)
+
+  &:disabled
+    opacity: 0.5
+    cursor: not-allowed
+    box-shadow: none
+
+// ── Status message ──
+.comment-message
+  font-size: 0.82em
+  line-height: 1.4
+
+.comment-message-success
+  color: #34D399
+
+.comment-message-error
+  color: #F87171
+
+// ── Comments list ──
+.comments-list
+  display: flex
+  flex-direction: column
+  gap: 14px
+
+.comments-empty,
+.comments-loading,
+.comments-error
+  font-size: 0.88em
+  color: color-text-muted
+  text-align: center
+  padding: 32px 0
+  margin: 0
+
+.comments-error
+  color: #F87171
+
+// ── Comment card — brighter glass
+.comment-card
+  padding: 18px 22px
+  border-radius: 14px
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.66), rgba(30, 41, 59, 0.42))
+  backdrop-filter: blur(12px) saturate(180%)
+  -webkit-backdrop-filter: blur(12px) saturate(180%)
+  border: 1px solid rgba(148, 163, 184, 0.20)
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.04)
+  transition: border-color 0.25s ease
+
+  &:hover
+    border-color: rgba(147, 197, 253, 0.3)
+
+.comment-card-meta
+  display: flex
+  align-items: center
+  gap: 12px
+  margin-bottom: 8px
+
+.comment-card-author
+  font-size: 0.88em
+  font-weight: 600
+  color: #F1F5F9
+
+.comment-card-time
+  font-size: 0.73em
+  color: #64748B
+  letter-spacing: 0.2px
+
+.comment-card-body
+  font-size: 0.9em
+  line-height: 1.75
+  color: #DDE6F3
+
+  p
+    margin: 0
+
+// ── Mobile ──
+@media (max-width: 768px)
+  .post-comments
+    margin: 28px 0
+
+  .comment-card
+    padding: 14px 16px
+
+  .comment-form-actions
+    flex-direction: column
+    align-items: stretch
+
+  .comment-btn
+    width: 100%

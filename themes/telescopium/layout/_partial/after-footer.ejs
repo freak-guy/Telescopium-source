@@ -20,6 +20,9 @@
 <% } %>
 
 <%- js('js/script') %>
+<% if (page.layout === 'post'){ %>
+<%- js('js/comments') %>
+<% } %>
 <%- partial('gauges-analytics') %>
 
 <% if(theme.valine.enable && theme.valine.appId && theme.valine.appKey){ %>

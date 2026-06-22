@@ -13,7 +13,7 @@
 
 .archive-year
   @extend $block-caption
-  color: #94A3B8
+  color: #CBD5E1
   font-size: 1.1em
   letter-spacing: 3px
 
@@ -36,12 +36,12 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease
   &:hover
     transform: translateY(-2px)
-    border-color: rgba(255, 255, 255, 0.22)
+    border-color: rgba(147, 197, 253, 0.36)
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 20px 64px rgba(0, 0, 0, 0.4),
-      0 0 0 1px rgba(59, 130, 246, 0.06),
-      0 0 32px rgba(59, 130, 246, 0.04)
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 20px 64px rgba(15, 23, 42, 0.45),
+      0 0 0 1px rgba(59, 130, 246, 0.08),
+      0 0 32px rgba(59, 130, 246, 0.06)
 
 .archive-article-title
   text-decoration: none
@@ -51,13 +51,13 @@
   line-height: 1.5em
   font-size: 0.95em
   &:hover
-    color: #60A5FA
+    color: #93C5FD
 
 .archive-article-footer
   margin-top: 0.8em
 
 .archive-article-date
-  color: #64748B
+  color: #94A3B8
   text-decoration: none
   font-size: 0.8em
   line-height: 1em
@@ -65,32 +65,32 @@
   display: block
 
 // ===============
-// Pagination — Liquid Glass
+// Pagination — Brighter Liquid Glass
 // ===============
 #page-nav
   clearfix()
   margin: block-margin auto
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.66), rgba(30, 41, 59, 0.42))
   backdrop-filter: blur(20px) saturate(180%)
   -webkit-backdrop-filter: blur(20px) saturate(180%)
-  border: 1px solid rgba(255, 255, 255, 0.12)
+  border: 1px solid rgba(148, 163, 184, 0.20)
   border-radius: 16px
   text-align: center
-  color: #94A3B8
+  color: #CBD5E1
   overflow: hidden
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 16px 48px rgba(0, 0, 0, 0.3)
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 16px 48px rgba(15, 23, 42, 0.35)
   a, span
     padding: 12px 20px
     line-height: 1
     height: 2ex
   a
-    color: #94A3B8
+    color: #CBD5E1
     text-decoration: none
     transition: all 0.2s ease
     &:hover
-      background: rgba(255, 255, 255, 0.06)
+      background: rgba(59, 130, 246, 0.12)
       color: #F8FAFC
   .prev
     float: left
@@ -105,6 +105,6 @@
   .current
     color: #F8FAFC
     font-weight: 600
-    background: rgba(59, 130, 246, 0.1)
+    background: rgba(59, 130, 246, 0.18)
   .space
-    color: rgba(255, 255, 255, 0.08)
+    color: rgba(148, 163, 184, 0.15)

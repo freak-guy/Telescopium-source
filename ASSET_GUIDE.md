@@ -1,16 +1,26 @@
 # Telescopium 静态图片资源指南
 
-## 当前格式
+## 图片格式策略
 
-本项目统一使用 **PNG** 格式。
+| 类型 | 源文件 | 网页加载 | 说明 |
+|------|--------|---------|------|
+| 图标（favicon、PWA） | `.png` | `.png` | 保持 PNG，加 `?v=2` 防缓存 |
+| 封面图（covers） | `.png` | `.webp` | WebP 优先，体积减少 97–98% |
+| 背景图（backgrounds） | `.png` | `.webp` | WebP 优先 |
+| 品牌图（brand） | `.png` | `.webp` | banner 用 WebP，mark 保留 PNG |
+| 文章内嵌图片 | `.png` | 待定 | 未来可按需生成 WebP |
+
+**规则**：PNG 是源文件（保留），WebP 是网页优先加载文件。新增图片后需同步生成 WebP。
+生成命令：`python3 tools/convert-webp.py`
 
 ## 目录结构与已有文件
 
 ```
 source/assets/
 ├── brand/
-│   ├── telescopium-mark.png         # 品牌标志（小尺寸，用于 About 页底部）
-│   ├── telescopium-logo-banner.png  # 品牌横幅（用于 About 页顶部）
+│   ├── telescopium-mark.png         # 品牌标志（PNG，About 页底部）
+│   ├── telescopium-logo-banner.png  # 品牌横幅源文件
+│   ├── telescopium-logo-banner.webp # ← 网页加载
 │   └── .gitkeep
 ├── icons/
 │   ├── favicon.png                  # 浏览器标签页图标
@@ -19,14 +29,20 @@ source/assets/
 │   └── .gitkeep
 └── images/
     ├── backgrounds/
-    │   ├── hero-bg.png              # 首页 Hero 区背景
+    │   ├── hero-bg.png              # 源文件
+    │   ├── hero-bg.webp             # ← 网页加载
     │   └── .gitkeep
     ├── covers/
-    │   ├── default-cover.png        # 默认文章封面（预留）
-    │   ├── research-cover.png       # Research Notes 入口卡片封面
-    │   ├── medicine-cover.png       # Medical Essays 入口卡片封面
-    │   ├── ai-tools-cover.png       # AI & Tools 入口卡片封面
-    │   ├── personal-logs-cover.png  # Personal Logs 入口卡片封面
+    │   ├── default-cover.png        # 源文件
+    │   ├── default-cover.webp       # ← 网页加载
+    │   ├── research-cover.png       # 源文件
+    │   ├── research-cover.webp      # ← 网页加载
+    │   ├── medicine-cover.png       # 源文件
+    │   ├── medicine-cover.webp      # ← 网页加载
+    │   ├── ai-tools-cover.png       # 源文件
+    │   ├── ai-tools-cover.webp      # ← 网页加载
+    │   ├── personal-logs-cover.png  # 源文件
+    │   ├── personal-logs-cover.webp # ← 网页加载
     │   └── .gitkeep
     └── posts/
         └── .gitkeep                 # 未来文章内嵌图片放这里

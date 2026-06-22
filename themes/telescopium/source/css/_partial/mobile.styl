@@ -1,45 +1,69 @@
 // ===============
-// Telescopium Mobile Navigation
+// Telescopium Mobile Navigation — Dropdown Panel
 // ===============
 
-// Hidden by default — only revealed on mobile when toggled
+// Hidden by default on ALL screens
 #mobile-nav
   display: none
 
-@media mq-mobile
-  #mobile-nav
-    display: block
-    position: absolute
-    top: 0
-    left: 0
-    width: mobile-nav-width
-    height: 100%
-    background: linear-gradient(180deg, #0C1019, #080B14)
-    border-right: 1px solid rgba(255, 255, 255, 0.06)
-    padding-top: 20px
-    box-shadow: 8px 0 48px rgba(0, 0, 0, 0.4)
+// ── Desktop: always hidden ──
+// (links are shown inline in #main-nav)
 
+// ── Mobile (≤768px): dropdown panel ──
+@media (max-width: 768px)
+  // Show dropdown when nav is toggled open
+  body.nav-open #mobile-nav
+    display: flex
+    flex-direction: column
+    gap: 4px
+    position: fixed
+    top: 72px
+    left: 16px
+    right: 16px
+    padding: 14px 12px
+    border-radius: 20px
+    background: rgba(15, 23, 42, 0.96)
+    border: 1px solid rgba(148, 163, 184, 0.22)
+    backdrop-filter: blur(18px) saturate(180%)
+    -webkit-backdrop-filter: blur(18px) saturate(180%)
+    z-index: 999
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.55),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06)
+    list-style: none
+    margin: 0
+
+  // Brand header inside dropdown — hidden, we use the main header logo
   .mobile-nav-header
-    padding: 16px 20px 24px
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06)
-    margin-bottom: 12px
+    display: none
 
-  .mobile-nav-brand
-    color: #F8FAFC
-    font-size: 16px
-    font-weight: 600
-    letter-spacing: 2.5px
-
-@media mq-mobile
+  // Nav links inside dropdown
   .mobile-nav-link
     display: block
-    color: #94A3B8
+    color: #CBD5E1
     text-decoration: none
-    padding: 14px 20px
-    font-size: 15px
-    font-weight: 400
+    padding: 14px 18px
+    font-size: 16px
+    font-weight: 450
     letter-spacing: 0.3px
+    border-radius: 12px
     transition: color 0.2s ease, background 0.2s ease
     &:hover
-      color: #F8FAFC
-      background: rgba(255, 255, 255, 0.04)
+      color: #93C5FD
+      background: rgba(59, 130, 246, 0.12)
+    &:active
+      background: rgba(59, 130, 246, 0.18)
+      color: #93C5FD
+
+// ── Overlay backdrop when nav is open ──
+body.nav-open::after
+  content: ""
+  position: fixed
+  inset: 0
+  background: rgba(15, 23, 42, 0.45)
+  z-index: 99
+  pointer-events: auto
+
+@media (min-width: 769px)
+  body.nav-open::after
+    display: none

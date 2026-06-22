@@ -22,20 +22,20 @@ html
   box-sizing: inherit
 
 // ===============
-// Deep Space Background
+// Deep Space Background — Brighter Blue-Gray Edition
 // ===============
 body
-  background: color-bg-primary
-  background-image:
-    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(139, 92, 246, 0.05) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 50%)
+  background:
+    radial-gradient(circle at 15% 5%, rgba(59, 130, 246, 0.16), transparent 34%),
+    radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.14), transparent 32%),
+    radial-gradient(circle at 50% 70%, rgba(59, 130, 246, 0.06), transparent 40%),
+    linear-gradient(180deg, #111C2E 0%, #0F172A 48%, #111827 100%)
   background-attachment: fixed
   font: font-size font-sans
   -webkit-text-size-adjust: 100%
   color: color-text-primary
 
-// Subtle star-dust texture overlay
+// Subtle star-dust texture overlay — slightly brighter
 body::before
   content: ""
   position: fixed
@@ -46,18 +46,18 @@ body::before
   pointer-events: none
   z-index: 0
   background-image:
-    radial-gradient(1px 1px at 10% 15%, rgba(255, 255, 255, 0.25), transparent),
-    radial-gradient(1px 1px at 25% 35%, rgba(255, 255, 255, 0.2), transparent),
-    radial-gradient(1.5px 1.5px at 40% 8%, rgba(255, 255, 255, 0.3), transparent),
-    radial-gradient(1px 1px at 55% 45%, rgba(255, 255, 255, 0.15), transparent),
-    radial-gradient(1px 1px at 70% 22%, rgba(255, 255, 255, 0.2), transparent),
-    radial-gradient(1.5px 1.5px at 85% 55%, rgba(255, 255, 255, 0.25), transparent),
-    radial-gradient(1px 1px at 15% 65%, rgba(255, 255, 255, 0.15), transparent),
-    radial-gradient(1px 1px at 60% 75%, rgba(255, 255, 255, 0.2), transparent),
-    radial-gradient(1px 1px at 90% 85%, rgba(255, 255, 255, 0.15), transparent),
-    radial-gradient(1.5px 1.5px at 35% 88%, rgba(255, 255, 255, 0.2), transparent),
-    radial-gradient(1px 1px at 48% 12%, rgba(255, 255, 255, 0.18), transparent),
-    radial-gradient(1px 1px at 78% 68%, rgba(255, 255, 255, 0.22), transparent)
+    radial-gradient(1px 1px at 10% 15%, rgba(255, 255, 255, 0.35), transparent),
+    radial-gradient(1px 1px at 25% 35%, rgba(255, 255, 255, 0.28), transparent),
+    radial-gradient(1.5px 1.5px at 40% 8%, rgba(255, 255, 255, 0.38), transparent),
+    radial-gradient(1px 1px at 55% 45%, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 70% 22%, rgba(255, 255, 255, 0.28), transparent),
+    radial-gradient(1.5px 1.5px at 85% 55%, rgba(255, 255, 255, 0.32), transparent),
+    radial-gradient(1px 1px at 15% 65%, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 60% 75%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 90% 85%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 35% 88%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 48% 12%, rgba(255, 255, 255, 0.22), transparent),
+    radial-gradient(1px 1px at 78% 68%, rgba(255, 255, 255, 0.28), transparent)
 
 // ===============
 // Hero Section
@@ -81,17 +81,17 @@ body::before
     content: ""
     position: absolute
     inset: 0
-    background: url('/assets/images/backgrounds/hero-bg.png') center/cover no-repeat
+    background: url('/assets/images/backgrounds/hero-bg.webp') center/cover no-repeat
     opacity: 0.28
-  // CSS gradient overlays — keep the deep-space glow
+  // CSS gradient overlays — brighter blue-purple glow
   &::after
     content: ""
     position: absolute
     inset: 0
     background:
-      radial-gradient(ellipse 70% 55% at 50% 35%, rgba(59, 130, 246, 0.1) 0%, transparent 55%),
-      radial-gradient(ellipse 45% 40% at 30% 65%, rgba(139, 92, 246, 0.07) 0%, transparent 50%),
-      radial-gradient(ellipse 35% 35% at 70% 60%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)
+      radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.22), transparent 34%),
+      radial-gradient(circle at 85% 20%, rgba(139, 92, 246, 0.16), transparent 30%),
+      radial-gradient(ellipse 50% 40% at 50% 80%, rgba(59, 130, 246, 0.08), transparent 50%)
 
 .hero-content
   position: relative
@@ -106,15 +106,15 @@ body::before
   margin: 0 0 20px
   line-height: 1.05
   text-shadow:
-    0 0 80px rgba(59, 130, 246, 0.25),
-    0 0 160px rgba(139, 92, 246, 0.12),
-    0 1px 0 rgba(255, 255, 255, 0.1)
+    0 0 80px rgba(59, 130, 246, 0.3),
+    0 0 160px rgba(139, 92, 246, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.12)
 
 .hero-subtitle
   font-size: 1.35em
   font-weight: 300
   letter-spacing: 4px
-  color: #94A3B8
+  color: #CBD5E1
   margin: 0 0 14px
   line-height: 1.4
 
@@ -122,7 +122,7 @@ body::before
   font-size: 1em
   font-weight: 400
   letter-spacing: 2.5px
-  color: #64748B
+  color: #E2E8F0
   margin: 0 0 44px
   line-height: 1.5
 
@@ -146,54 +146,72 @@ body::before
   -webkit-backdrop-filter: blur(12px) saturate(180%)
 
 .hero-btn-primary
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.08))
-  border: 1px solid rgba(59, 130, 246, 0.25)
-  color: #F8FAFC
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15)
+  background: linear-gradient(135deg, #60A5FA, #8B5CF6)
+  border: 1px solid rgba(147, 197, 253, 0.35)
+  color: #FFFFFF
+  box-shadow: 0 12px 34px rgba(59, 130, 246, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.18)
   &:hover
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0.12))
-    border-color: rgba(59, 130, 246, 0.4)
+    background: linear-gradient(135deg, #93C5FD, #A78BFA)
+    border-color: rgba(147, 197, 253, 0.5)
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.2),
-      0 0 36px rgba(59, 130, 246, 0.22)
+      0 18px 44px rgba(59, 130, 246, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22)
     color: #fff
     text-decoration: none
 
 .hero-btn-secondary
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03))
-  border: 1px solid rgba(255, 255, 255, 0.14)
-  color: #CBD5E1
+  background: rgba(255, 255, 255, 0.08)
+  border: 1px solid rgba(203, 213, 225, 0.28)
+  color: #F8FAFC
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1)
   &:hover
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06))
-    border-color: rgba(255, 255, 255, 0.22)
+    background: rgba(255, 255, 255, 0.14)
+    border-color: rgba(203, 213, 225, 0.4)
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.16),
-      0 0 28px rgba(255, 255, 255, 0.06)
+      0 0 28px rgba(255, 255, 255, 0.08)
     color: #fff
     text-decoration: none
 
 // Mobile hero adjustments
-@media mq-mobile
+@media (max-width: 768px)
   #hero
-    padding: 60px 20px 50px
+    padding: 72px 20px 72px
+    min-height: auto
 
   .hero-title
-    font-size: 2.2em
-    letter-spacing: 4px
+    font-size: clamp(36px, 10vw, 56px)
+    letter-spacing: 0.06em
+    margin-bottom: 16px
 
   .hero-subtitle
-    font-size: 1.1em
+    font-size: 1em
     letter-spacing: 2px
+    max-width: 320px
+    margin-left: auto
+    margin-right: auto
+
+  .hero-desc
+    font-size: 15px
+    line-height: 1.8
+    letter-spacing: 0.03em
+    max-width: 320px
+    margin-left: auto
+    margin-right: auto
 
   .hero-actions
     flex-direction: column
     align-items: center
-    gap: 12px
+    gap: 14px
 
   .hero-btn
-    width: 100%
-    max-width: 260px
+    width: min(100%, 320px)
+    height: 52px
+    font-size: 15px
+    border-radius: 999px
+    display: flex
+    align-items: center
+    justify-content: center
     text-align: center
 
 // Homepage full-width main
@@ -214,13 +232,13 @@ body.home #main
   font-weight: 600
   letter-spacing: 3.5px
   text-transform: uppercase
-  color: #475569
+  color: #64748B
   margin: 0
 
 .section-sub
   font-size: 0.7em
   font-weight: 400
-  color: #334155
+  color: #475569
   letter-spacing: 1px
 
 // Content hub cards
@@ -231,27 +249,28 @@ body.home #main
   display: grid
   grid-template-columns: repeat(4, 1fr)
   gap: 14px
-  @media mq-tablet
-    grid-template-columns: repeat(2, 1fr)
-  @media mq-mobile
+  @media (max-width: 768px)
     grid-template-columns: 1fr
-    gap: 10px
+    gap: 16px
 
 .content-card
   display: flex
   flex-direction: column
   border-radius: 18px
-  background: linear-gradient(135deg, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.3))
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.66), rgba(30, 41, 59, 0.42))
   backdrop-filter: blur(16px) saturate(180%)
   -webkit-backdrop-filter: blur(16px) saturate(180%)
-  border: 1px solid rgba(255, 255, 255, 0.08)
+  border: 1px solid rgba(148, 163, 184, 0.20)
   text-decoration: none
   overflow: hidden
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease
   &:hover
     transform: translateY(-2px)
-    border-color: rgba(255, 255, 255, 0.16)
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 28px rgba(59, 130, 246, 0.05)
+    border-color: rgba(147, 197, 253, 0.36)
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 18px 50px rgba(15, 23, 42, 0.4),
+      0 0 36px rgba(59, 130, 246, 0.1)
     text-decoration: none
 
 // Cover image strip at top of card
@@ -266,7 +285,7 @@ body.home #main
     content: ""
     position: absolute
     inset: 0
-    background: linear-gradient(to bottom, rgba(8, 11, 20, 0.35), rgba(8, 11, 20, 0.65))
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.6))
     pointer-events: none
 
 // Card body — symbol + text row
@@ -292,14 +311,14 @@ body.home #main
 .content-card-title
   font-size: 0.88em
   font-weight: 600
-  color: #E2E8F0
+  color: #F1F5F9
   margin: 0 0 3px
   line-height: 1.3
   letter-spacing: 0.3px
 
 .content-card-desc
   font-size: 0.76em
-  color: #64748B
+  color: #94A3B8
   margin: 0
   line-height: 1.45
 
@@ -315,12 +334,13 @@ body.home #main
 .post-card-inner
   padding: 22px 26px
   border-radius: 18px
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01))
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.66), rgba(30, 41, 59, 0.42))
   backdrop-filter: blur(16px) saturate(180%)
   -webkit-backdrop-filter: blur(16px) saturate(180%)
-  border: 1px solid rgba(255, 255, 255, 0.06)
+  border: 1px solid rgba(148, 163, 184, 0.20)
   overflow: hidden
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.04)
 
 // Card with cover image — remove top padding, cover sits flush at top
 .post-card-inner.has-cover
@@ -332,20 +352,20 @@ body.home #main
   margin: 0 -26px 18px  // negative side margins to reach card edges
   aspect-ratio: 16 / 9
   overflow: hidden
-  background: #0a0f1a
+  background: #111C2E
   img
     width: 100%
     height: 100%
     object-fit: cover
     display: block
-    opacity: 0.55
+    opacity: 0.6
     transition: opacity 0.35s ease, transform 0.35s ease
   // Dark gradient overlay — bottom fades into card body
   &::after
     content: ""
     position: absolute
     inset: 0
-    background: linear-gradient(to bottom, rgba(8, 11, 20, 0.1), rgba(8, 11, 20, 0.7))
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.65))
     pointer-events: none
 
 .post-card:hover .post-card-cover img
@@ -353,28 +373,31 @@ body.home #main
   transform: scale(1.03)
 
 // Mobile: cover becomes narrower
-@media mq-mobile
+@media (max-width: 768px)
   .post-card-cover
     margin: 0 -18px 14px
     aspect-ratio: 16 / 9
 
 .post-card:hover .post-card-inner
   transform: translateY(-2px)
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02))
-  border-color: rgba(255, 255, 255, 0.12)
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 48px rgba(0, 0, 0, 0.3)
+  background: linear-gradient(135deg, rgba(39, 52, 75, 0.74), rgba(39, 52, 75, 0.52))
+  border-color: rgba(147, 197, 253, 0.36)
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 24px 70px rgba(15, 23, 42, 0.42),
+    0 0 36px rgba(59, 130, 246, 0.12)
 
 .post-card-date
   display: inline-block
   font-size: 0.73em
   font-weight: 500
   letter-spacing: 0.5px
-  color: #475569
+  color: #64748B
   text-decoration: none
   margin-bottom: 8px
   transition: color 0.2s ease
   &:hover
-    color: #64748B
+    color: #94A3B8
 
 .post-card-title
   font-size: 1.18em
@@ -392,7 +415,7 @@ body.home #main
 .post-card-excerpt
   font-size: 0.88em
   line-height: 1.7
-  color: #94A3B8
+  color: #CBD5E1
   margin: 0 0 14px
 
 .post-card-tags
@@ -406,30 +429,30 @@ body.home #main
   align-items: center
   padding: 3px 10px
   border-radius: 999px
-  background: rgba(255, 255, 255, 0.03)
-  border: 1px solid rgba(255, 255, 255, 0.06)
+  background: rgba(148, 163, 184, 0.08)
+  border: 1px solid rgba(148, 163, 184, 0.15)
   font-size: 0.73em
-  color: #64748B
+  color: #94A3B8
   text-decoration: none
   line-height: 1.4
   transition: all 0.2s ease
   letter-spacing: 0.2px
   &:hover
-    background: rgba(59, 130, 246, 0.08)
-    border-color: rgba(59, 130, 246, 0.15)
-    color: #60A5FA
+    background: rgba(59, 130, 246, 0.12)
+    border-color: rgba(96, 165, 250, 0.3)
+    color: #93C5FD
     text-decoration: none
 
 .post-card-more
   display: inline-block
   font-size: 0.8em
   font-weight: 500
-  color: #64748B
+  color: #94A3B8
   text-decoration: none
   letter-spacing: 0.3px
   transition: color 0.2s ease
   &:hover
-    color: #60A5FA
+    color: #93C5FD
 
 .outer
   clearfix()
@@ -452,20 +475,14 @@ body.home #main
 #container
   position: relative
 
-.mobile-nav-on
-  overflow: hidden
-
 #wrap
   min-height: 100vh
   width: 100%
   position: relative
   top: 0
   left: 0
-  transition: 0.2s ease-out
   z-index: 1
   background: transparent
-  .mobile-nav-on &
-    left: mobile-nav-width
 
 if sidebar and sidebar isnt bottom
   #main
@@ -488,3 +505,78 @@ if sidebar is left
 
 if sidebar
   @import "_partial/sidebar"
+
+// ===============
+// Comprehensive Mobile Overrides (≤768px)
+// ===============
+@media (max-width: 768px)
+  // Prevent horizontal overflow
+  html, body
+    overflow-x: hidden
+    max-width: 100vw
+
+  #container, #wrap, #main
+    max-width: 100vw
+    overflow-x: hidden
+
+  // Outer padding reduction
+  .outer
+    padding: 0 16px
+
+  // Section headers
+  .section-header
+    gap: 8px
+    margin-bottom: 18px
+
+  .section-label
+    font-size: 12px
+    letter-spacing: 3px
+
+  .section-sub
+    font-size: 11px
+
+  // Content cards
+  .content-card
+    border-radius: 22px
+
+    background: rgba(30, 41, 59, 0.72)
+  .content-card-cover
+    height: 140px
+
+  .content-card-body
+    padding: 18px
+
+  .content-card-title
+    font-size: 20px
+
+  .content-card-desc
+    font-size: 14px
+
+  // Post cards
+  .post-card-inner
+    padding: 18px 20px
+    background: rgba(30, 41, 59, 0.72)
+
+  .post-card-inner.has-cover
+    padding-top: 0
+
+  .post-card-title
+    font-size: 1.05em
+
+  .post-card-excerpt
+    font-size: 0.84em
+
+  // Pagination
+  #page-nav
+    padding: 0 16px
+
+  // Article/page inner
+  .article-inner
+    padding: 20px
+
+  // Archive
+  .archives-wrap
+    padding: 0
+
+  .archive-article-inner
+    padding: 14px 16px

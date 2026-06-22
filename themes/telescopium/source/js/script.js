@@ -107,10 +107,10 @@
     $('.fancybox').fancybox();
   }
 
-  // Mobile nav
-  var $container = $('#container'),
-    isMobileNavAnim = false,
-    mobileNavAnimDuration = 200;
+  // ── Mobile nav (dropdown panel, ≤768px) ──
+  var $body = $('body');
+  var isMobileNavAnim = false;
+  var mobileNavAnimDuration = 250;
 
   var startMobileNavAnim = function(){
     isMobileNavAnim = true;
@@ -120,19 +120,36 @@
     setTimeout(function(){
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
-  }
+  };
 
-  $('#main-nav-toggle').on('click', function(){
+  // Toggle: hamburger button opens/closes the dropdown
+  $('#main-nav-toggle').on('click', function(e){
+    e.stopPropagation();
     if (isMobileNavAnim) return;
 
     startMobileNavAnim();
-    $container.toggleClass('mobile-nav-on');
+    $body.toggleClass('nav-open');
     stopMobileNavAnim();
   });
 
-  $('#wrap').on('click', function(){
-    if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
+  // Close when clicking a nav link inside the dropdown
+  $('#mobile-nav').on('click', '.mobile-nav-link', function(){
+    $body.removeClass('nav-open');
+  });
 
-    $container.removeClass('mobile-nav-on');
+  // Close when clicking the backdrop overlay
+  $body.on('click', function(e){
+    if (!$body.hasClass('nav-open')) return;
+    // Only close if clicking the ::after backdrop, not the dropdown itself
+    if ($(e.target).is('body') || $(e.target).is('#container') || $(e.target).is('#wrap')) {
+      $body.removeClass('nav-open');
+    }
+  });
+
+  // Close on Escape key
+  $(document).on('keydown', function(e){
+    if (e.key === 'Escape' && $body.hasClass('nav-open')) {
+      $body.removeClass('nav-open');
+    }
   });
 })(jQuery);

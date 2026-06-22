@@ -1,0 +1,51 @@
+<!-- Telescopium Comments Section -->
+<section class="post-comments" id="comments">
+  <div class="comments-head">
+    <h2 class="comments-title">评论</h2>
+    <p class="comments-hint">留下你的想法。无需登录，只需填写用户名。</p>
+  </div>
+
+  <form class="comment-form" id="comment-form" novalidate>
+    <div class="comment-form-fields">
+      <input
+        type="text"
+        id="comment-author"
+        name="author"
+        class="comment-input"
+        placeholder="请输入用户名"
+        maxlength="24"
+        autocomplete="off"
+        required
+      >
+      <textarea
+        id="comment-content"
+        name="content"
+        class="comment-textarea"
+        placeholder="写下你的评论……"
+        maxlength="1000"
+        rows="4"
+        required
+      ></textarea>
+
+      <!-- 蜜罐：人类不应填写 -->
+      <input
+        type="text"
+        id="comment-website"
+        name="website"
+        class="comment-honeypot"
+        autocomplete="off"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+    </div>
+
+    <div class="comment-form-actions">
+      <button type="submit" id="comment-submit" class="comment-btn">发布评论</button>
+      <span id="comment-message" class="comment-message"></span>
+    </div>
+  </form>
+
+  <div class="comments-list" id="comments-list">
+    <!-- JS 动态填充 -->
+  </div>
+</section>

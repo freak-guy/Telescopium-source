@@ -48,7 +48,7 @@ tags:
   - 个人札记              # 从中文标签体系中选 2–4 个
   - 长文
 excerpt: 80–140 字的中文摘要，简洁说明文章主题，不重复标题。
-cover: /assets/images/covers/default-cover.png   # 文章封面图路径
+cover: /assets/images/covers/default-cover.webp   # 文章封面图路径
 ---
 ```
 
@@ -64,11 +64,11 @@ cover: /assets/images/covers/default-cover.png   # 文章封面图路径
 
 | 文章分类 | 推荐封面 |
 |---------|---------|
-| Research | `/assets/images/covers/research-cover.png` |
-| Medicine | `/assets/images/covers/medicine-cover.png` |
-| AI 或 Tech | `/assets/images/covers/ai-tools-cover.png` |
-| Reading 或 Notes | `/assets/images/covers/personal-logs-cover.png` |
-| 无法判断 | `/assets/images/covers/default-cover.png` |
+| Research | `/assets/images/covers/research-cover.webp` |
+| Medicine | `/assets/images/covers/medicine-cover.webp` |
+| AI 或 Tech | `/assets/images/covers/ai-tools-cover.webp` |
+| Reading 或 Notes | `/assets/images/covers/personal-logs-cover.webp` |
+| 无法判断 | `/assets/images/covers/default-cover.webp` |
 
 封面图会在首页文章卡片顶部以 16:9 比例显示，带有暗色渐变遮罩。
 如果文章不设 cover 字段，卡片将不显示封面图，保持纯文字布局。
@@ -93,6 +93,6 @@ tags:
   - 医学随笔
   - 长文
 excerpt: 基于近期临床案例，探讨 GPT-4 在辅助鉴别诊断中的表现、局限性与潜在应用方向。
-cover: /assets/images/covers/ai-tools-cover.png
+cover: /assets/images/covers/ai-tools-cover.webp
 ---
 ```
