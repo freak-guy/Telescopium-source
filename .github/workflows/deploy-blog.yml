@@ -34,7 +34,7 @@ jobs:
 
       - name: Deploy to server
         env:
-          BLOG_SSH_KEY: ${{ secrets.BLOG }}
+          BLOG_SSH_KEY_B64: ${{ secrets.BLOG }}
         run: |
           set -euo pipefail
 
@@ -43,16 +43,19 @@ jobs:
           PORT="22"
           DEPLOY_PATH="/var/www/blog/"
 
-          if [ -z "${BLOG_SSH_KEY:-}" ]; then
+          if [ -z "${BLOG_SSH_KEY_B64:-}" ]; then
             echo "❌ BLOG secret is empty"
             exit 1
           fi
 
           mkdir -p ~/.ssh
-          printf '%s\n' "$BLOG_SSH_KEY" > ~/.ssh/blog_deploy_key
+
+          printf '%s' "$BLOG_SSH_KEY_B64" | base64 -d > ~/.ssh/blog_deploy_key
           chmod 600 ~/.ssh/blog_deploy_key
 
           ssh-keyscan -p "$PORT" "$HOST" >> ~/.ssh/known_hosts
+
+          ssh -i ~/.ssh/blog_deploy_key -p "$PORT" -o StrictHostKeyChecking=yes "$USER@$HOST" "echo deploy ssh ok"
 
           rsync -az --delete \
             -e "ssh -i ~/.ssh/blog_deploy_key -p $PORT" \
