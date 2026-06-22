@@ -4,9 +4,9 @@
 
 # Site
 title: TELESCOPIUM
-subtitle: 'Observe · Think · Build'
-description: 'Medicine · Research · AI — A personal hub for medical science, research, AI, and technology.'
-keywords: medicine, research, AI, technology, science, blog
+subtitle: 'Medicine · Research · AI'
+description: 'Telescopium is a personal knowledge hub for medicine, research, AI, and technology.'
+keywords: medicine, research, AI, technology, science, blog, telescopium
 author: Telescopium
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -97,6 +97,17 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: telescopium
+
+# Sitemap
+## hexo-generator-sitemap
+sitemap:
+  path: sitemap.xml
+  rel: true
+  tags: true
+  categories: true
+## hexo-generator-baidu-sitemap
+baidusitemap:
+  path: baidusitemap.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
