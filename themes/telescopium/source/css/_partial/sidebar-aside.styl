@@ -1,0 +1,156 @@
+// ===============
+// Telescopium Liquid Glass Sidebar
+// ===============
+
+#sidebar
+  @media mq-normal
+    column(sidebar-column)
+
+.widget-wrap
+  margin: 0 0 32px
+
+.widget-title
+  @extend $block-caption
+  color: #64748B
+  letter-spacing: 2px
+  font-size: 0.7em
+  margin-bottom: 12px
+
+// Liquid glass widget
+.widget
+  color: #94A3B8
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015))
+  backdrop-filter: blur(20px) saturate(180%)
+  -webkit-backdrop-filter: blur(20px) saturate(180%)
+  border: 1px solid rgba(255, 255, 255, 0.08)
+  padding: 16px
+  border-radius: 16px
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 36px rgba(0, 0, 0, 0.25)
+  a
+    color: #94A3B8
+    text-decoration: none
+    transition: color 0.2s ease
+    &:hover
+      color: #CBD5E1
+      text-decoration: none
+  ul, ol, dl
+    ul, ol, dl
+      margin-left: 15px
+      list-style: disc
+  ul, ol
+    list-style: none
+    margin: 0
+    ul, ol
+      margin: 0 20px
+    ul
+      list-style: disc
+    ol
+      list-style: decimal
+
+.category-list-count
+.tag-list-count
+.archive-list-count
+  padding-left: 5px
+  color: #64748B
+  font-size: 0.85em
+  &:before
+    content: "("
+  &:after
+    content: ")"
+
+.tagcloud
+  a
+    margin-right: 5px
+    display: inline-block
+
+// ===============
+// Widget: Tag Chips
+// ===============
+.widget-tags
+  .tag-chips-list
+    display: flex
+    flex-wrap: wrap
+    gap: 6px
+    list-style: none
+    margin: 0
+    padding: 0
+    .tag-chips-list-item
+      margin: 0
+      float: none
+    .tag-chips-list-link
+      display: inline-flex
+      align-items: center
+      padding: 3px 10px
+      border-radius: 999px
+      background: rgba(255, 255, 255, 0.03)
+      border: 1px solid rgba(255, 255, 255, 0.06)
+      font-size: 0.73em
+      color: #64748B
+      text-decoration: none
+      line-height: 1.4
+      letter-spacing: 0.2px
+      transition: all 0.2s ease
+      &:hover
+        background: rgba(59, 130, 246, 0.08)
+        border-color: rgba(59, 130, 246, 0.15)
+        color: #60A5FA
+        text-decoration: none
+
+// ===============
+// Widget: Archive Timeline
+// ===============
+.widget-archive
+  .archive-timeline-list
+    list-style: none
+    margin: 0
+    padding: 0
+    .archive-timeline-list-item
+      margin: 0
+      padding: 0
+    .archive-timeline-list-link
+      display: block
+      padding: 6px 0
+      font-size: 0.82em
+      color: #64748B
+      text-decoration: none
+      border-bottom: 1px solid rgba(255, 255, 255, 0.025)
+      transition: all 0.2s ease
+      letter-spacing: 0.3px
+      &:last-child
+        border-bottom: none
+      &:hover
+        color: #CBD5E1
+        padding-left: 4px
+        text-decoration: none
+
+// ===============
+// Widget: Recent Posts
+// ===============
+.widget-recent
+  .recent-posts-list
+    list-style: none
+    margin: 0
+    padding: 0
+  .recent-posts-item
+    display: flex
+    flex-direction: column
+    padding: 9px 0
+    border-bottom: 1px solid rgba(255, 255, 255, 0.025)
+    &:last-child
+      border-bottom: none
+  .recent-posts-title
+    font-size: 0.88em
+    color: #CBD5E1
+    text-decoration: none
+    line-height: 1.4
+    margin-bottom: 3px
+    transition: color 0.2s ease
+    &:hover
+      color: #E2E8F0
+      text-decoration: none
+  .recent-posts-date
+    font-size: 0.7em
+    color: #475569
+    letter-spacing: 0.3px

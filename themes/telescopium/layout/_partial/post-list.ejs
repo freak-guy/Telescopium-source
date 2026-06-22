@@ -1,0 +1,65 @@
+<!-- Telescopium Refined Post Listing -->
+<% if (page.posts && page.posts.length){ %>
+<section id="latest-posts" class="post-list-section">
+  <div class="section-header">
+    <h2 class="section-label">Latest Articles</h2>
+    <span class="section-sub">近期文章</span>
+  </div>
+  <div class="post-list-grid">
+    <% page.posts.each(function(post){ %>
+      <article class="post-card h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+        <div class="post-card-inner">
+          <!-- Date -->
+          <a href="<%- url_for(post.path) %>" class="post-card-date">
+            <time datetime="<%= date_xml(post.date) %>"><%= date(post.date, 'YYYY · MM · DD') %></time>
+          </a>
+
+          <!-- Title -->
+          <h2 class="post-card-title">
+            <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+          </h2>
+
+          <!-- Excerpt — auto-generate from content if no explicit excerpt -->
+          <%
+            var excerptText = '';
+            if (post.excerpt) {
+              excerptText = strip_html(post.excerpt).trim();
+            } else if (post.content) {
+              excerptText = strip_html(post.content).trim();
+            }
+            var maxLen = 130;
+          %>
+          <% if (excerptText){ %>
+            <p class="post-card-excerpt">
+              <%= excerptText.substring(0, maxLen) %><% if (excerptText.length > maxLen){ %>&hellip;<% } %>
+            </p>
+          <% } %>
+
+          <!-- Tags as chips -->
+          <% if (post.tags && post.tags.length){ %>
+            <div class="post-card-tags">
+              <% post.tags.each(function(tag){ %>
+                <a href="<%- url_for(tag.path) %>" class="tag-chip"><%= tag.name %></a>
+              <% }) %>
+            </div>
+          <% } %>
+
+          <!-- Read More -->
+          <a href="<%- url_for(post.path) %>" class="post-card-more">Read Article &rarr;</a>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+
+  <!-- Pagination -->
+  <% if (page.total > 1){ %>
+    <nav id="page-nav">
+      <%- paginator({
+        prev_text: "&laquo; " + __('prev'),
+        next_text: __('next') + " &raquo;",
+        escape: false
+      }) %>
+    </nav>
+  <% } %>
+</section>
+<% } %>

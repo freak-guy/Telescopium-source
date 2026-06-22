@@ -1,0 +1,17 @@
+<footer id="footer">
+  <% if (theme.sidebar === 'bottom'){ %>
+    <%- partial('_partial/sidebar') %>
+  <% } %>
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      <% if (theme.copyright){ %>
+        <%- theme.copyright %>
+      <% } else { %>
+        &copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %><br>
+        Medicine · Research · AI
+      <% } %>
+      <br>
+      <span style="font-size: 0.85em; opacity: 0.5;"><%= __('powered_by') %> <a href="https://hexo.io/" target="_blank">Hexo</a></span>
+    </div>
+  </div>
+</footer>

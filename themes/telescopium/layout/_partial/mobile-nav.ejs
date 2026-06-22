@@ -1,0 +1,8 @@
+<nav id="mobile-nav">
+  <div class="mobile-nav-header">
+    <span class="mobile-nav-brand">TELESCOPIUM</span>
+  </div>
+  <% for (var i in theme.menu){ %>
+    <a href="<%- url_for(theme.menu[i]) %>" class="mobile-nav-link"><%= i %></a>
+  <% } %>
+</nav>

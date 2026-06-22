@@ -1,0 +1,421 @@
+@import "nib"
+@import "_variables"
+@import "_util/mixin"
+@import "_util/grid"
+
+global-reset()
+
+input, button
+  margin: 0
+  padding: 0
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+html, body, #container
+  min-height: 100vh
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+
+// ===============
+// Deep Space Background
+// ===============
+body
+  background: color-bg-primary
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(139, 92, 246, 0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 50%)
+  background-attachment: fixed
+  font: font-size font-sans
+  -webkit-text-size-adjust: 100%
+  color: color-text-primary
+
+// Subtle star-dust texture overlay
+body::before
+  content: ""
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
+  z-index: 0
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 25% 35%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 40% 8%, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(1px 1px at 55% 45%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(1px 1px at 70% 22%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1.5px 1.5px at 85% 55%, rgba(255, 255, 255, 0.25), transparent),
+    radial-gradient(1px 1px at 15% 65%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(1px 1px at 60% 75%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 90% 85%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(1.5px 1.5px at 35% 88%, rgba(255, 255, 255, 0.2), transparent),
+    radial-gradient(1px 1px at 48% 12%, rgba(255, 255, 255, 0.18), transparent),
+    radial-gradient(1px 1px at 78% 68%, rgba(255, 255, 255, 0.22), transparent)
+
+// ===============
+// Hero Section
+// ===============
+#hero
+  position: relative
+  display: flex
+  align-items: center
+  justify-content: center
+  text-align: center
+  padding: 90px 20px 68px
+  overflow: hidden
+  margin-bottom: 10px
+
+.hero-bg
+  position: absolute
+  inset: 0
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 35%, rgba(59, 130, 246, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 30% 65%, rgba(139, 92, 246, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 35% at 70% 60%, rgba(59, 130, 246, 0.05) 0%, transparent 50%)
+  pointer-events: none
+
+.hero-content
+  position: relative
+  z-index: 1
+  max-width: 700px
+
+.hero-title
+  font-size: 3.8em
+  font-weight: 800
+  letter-spacing: 8px
+  color: #F8FAFC
+  margin: 0 0 20px
+  line-height: 1.05
+  text-shadow:
+    0 0 80px rgba(59, 130, 246, 0.25),
+    0 0 160px rgba(139, 92, 246, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.1)
+
+.hero-subtitle
+  font-size: 1.35em
+  font-weight: 300
+  letter-spacing: 4px
+  color: #94A3B8
+  margin: 0 0 14px
+  line-height: 1.4
+
+.hero-desc
+  font-size: 1em
+  font-weight: 400
+  letter-spacing: 2.5px
+  color: #64748B
+  margin: 0 0 44px
+  line-height: 1.5
+
+.hero-actions
+  display: flex
+  gap: 16px
+  justify-content: center
+  flex-wrap: wrap
+
+.hero-btn
+  display: inline-block
+  padding: 13px 34px
+  border-radius: 28px
+  font-size: 0.95em
+  font-weight: 500
+  letter-spacing: 0.8px
+  text-decoration: none
+  transition: all 0.3s ease
+  cursor: pointer
+  backdrop-filter: blur(12px) saturate(180%)
+  -webkit-backdrop-filter: blur(12px) saturate(180%)
+
+.hero-btn-primary
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.08))
+  border: 1px solid rgba(59, 130, 246, 0.25)
+  color: #F8FAFC
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15)
+  &:hover
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.28), rgba(59, 130, 246, 0.12))
+    border-color: rgba(59, 130, 246, 0.4)
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 36px rgba(59, 130, 246, 0.22)
+    color: #fff
+    text-decoration: none
+
+.hero-btn-secondary
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03))
+  border: 1px solid rgba(255, 255, 255, 0.14)
+  color: #CBD5E1
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1)
+  &:hover
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06))
+    border-color: rgba(255, 255, 255, 0.22)
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 0 28px rgba(255, 255, 255, 0.06)
+    color: #fff
+    text-decoration: none
+
+// Mobile hero adjustments
+@media mq-mobile
+  #hero
+    padding: 60px 20px 50px
+
+  .hero-title
+    font-size: 2.2em
+    letter-spacing: 4px
+
+  .hero-subtitle
+    font-size: 1.1em
+    letter-spacing: 2px
+
+  .hero-actions
+    flex-direction: column
+    align-items: center
+    gap: 12px
+
+  .hero-btn
+    width: 100%
+    max-width: 260px
+    text-align: center
+
+// Homepage full-width main
+body.home #main
+  @media mq-normal
+    column(columns)
+
+// Section headers — bilingual
+.section-header
+  display: flex
+  align-items: baseline
+  gap: 12px
+  margin: 0 0 24px
+  padding: 0 4px
+
+.section-label
+  font-size: 0.72em
+  font-weight: 600
+  letter-spacing: 3.5px
+  text-transform: uppercase
+  color: #475569
+  margin: 0
+
+.section-sub
+  font-size: 0.7em
+  font-weight: 400
+  color: #334155
+  letter-spacing: 1px
+
+// Content hub cards
+.content-cards-section
+  margin: 0 0 36px
+
+.content-cards-grid
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: 14px
+  @media mq-tablet
+    grid-template-columns: repeat(2, 1fr)
+  @media mq-mobile
+    grid-template-columns: 1fr
+    gap: 10px
+
+.content-card
+  display: flex
+  align-items: flex-start
+  gap: 12px
+  padding: 18px 18px
+  border-radius: 18px
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))
+  backdrop-filter: blur(16px) saturate(180%)
+  -webkit-backdrop-filter: blur(16px) saturate(180%)
+  border: 1px solid rgba(255, 255, 255, 0.07)
+  text-decoration: none
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease
+  &:hover
+    transform: translateY(-2px)
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03))
+    border-color: rgba(255, 255, 255, 0.14)
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 40px rgba(0, 0, 0, 0.25), 0 0 24px rgba(59, 130, 246, 0.04)
+    text-decoration: none
+
+.content-card-symbol
+  font-size: 1.1em
+  line-height: 1
+  flex-shrink: 0
+  opacity: 0.5
+  transition: opacity 0.3s ease
+
+.content-card:hover .content-card-symbol
+  opacity: 0.8
+
+.content-card-text
+  min-width: 0
+
+.content-card-title
+  font-size: 0.88em
+  font-weight: 600
+  color: #E2E8F0
+  margin: 0 0 3px
+  line-height: 1.3
+  letter-spacing: 0.3px
+
+.content-card-desc
+  font-size: 0.76em
+  color: #64748B
+  margin: 0
+  line-height: 1.45
+
+// Post list cards
+.post-list-section
+  margin: 0 0 50px
+
+.post-list-grid
+  display: flex
+  flex-direction: column
+  gap: 18px
+
+.post-card-inner
+  padding: 22px 26px
+  border-radius: 18px
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01))
+  backdrop-filter: blur(16px) saturate(180%)
+  -webkit-backdrop-filter: blur(16px) saturate(180%)
+  border: 1px solid rgba(255, 255, 255, 0.06)
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease
+
+.post-card:hover .post-card-inner
+  transform: translateY(-2px)
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02))
+  border-color: rgba(255, 255, 255, 0.12)
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 16px 48px rgba(0, 0, 0, 0.3)
+
+.post-card-date
+  display: inline-block
+  font-size: 0.73em
+  font-weight: 500
+  letter-spacing: 0.5px
+  color: #475569
+  text-decoration: none
+  margin-bottom: 8px
+  transition: color 0.2s ease
+  &:hover
+    color: #64748B
+
+.post-card-title
+  font-size: 1.18em
+  font-weight: 700
+  line-height: 1.3
+  margin: 0 0 8px
+  letter-spacing: -0.01em
+  a
+    color: #F1F5F9
+    text-decoration: none
+    transition: color 0.2s ease
+    &:hover
+      color: #60A5FA
+
+.post-card-excerpt
+  font-size: 0.88em
+  line-height: 1.7
+  color: #94A3B8
+  margin: 0 0 14px
+
+.post-card-tags
+  display: flex
+  flex-wrap: wrap
+  gap: 7px
+  margin-bottom: 16px
+
+.tag-chip
+  display: inline-flex
+  align-items: center
+  padding: 3px 10px
+  border-radius: 999px
+  background: rgba(255, 255, 255, 0.03)
+  border: 1px solid rgba(255, 255, 255, 0.06)
+  font-size: 0.73em
+  color: #64748B
+  text-decoration: none
+  line-height: 1.4
+  transition: all 0.2s ease
+  letter-spacing: 0.2px
+  &:hover
+    background: rgba(59, 130, 246, 0.08)
+    border-color: rgba(59, 130, 246, 0.15)
+    color: #60A5FA
+    text-decoration: none
+
+.post-card-more
+  display: inline-block
+  font-size: 0.8em
+  font-weight: 500
+  color: #64748B
+  text-decoration: none
+  letter-spacing: 0.3px
+  transition: color 0.2s ease
+  &:hover
+    color: #60A5FA
+
+.outer
+  clearfix()
+  max-width: (column-width + gutter-width) * columns + gutter-width
+  margin: 0 auto
+  padding: 0 gutter-width
+
+.inner
+  column(columns)
+
+.left, .alignleft
+  float: left
+
+.right, .alignright
+  float: right
+
+.clear
+  clear: both
+
+#container
+  position: relative
+
+.mobile-nav-on
+  overflow: hidden
+
+#wrap
+  min-height: 100vh
+  width: 100%
+  position: relative
+  top: 0
+  left: 0
+  transition: 0.2s ease-out
+  z-index: 1
+  background: transparent
+  .mobile-nav-on &
+    left: mobile-nav-width
+
+if sidebar and sidebar isnt bottom
+  #main
+    @media mq-normal
+      column(main-column)
+
+if sidebar is left
+  @media mq-normal
+    #main
+      float: right
+
+@import "_extend"
+@import "_partial/header"
+@import "_partial/article"
+@import "_partial/comment"
+@import "_partial/archive"
+@import "_partial/footer"
+@import "_partial/highlight"
+@import "_partial/mobile"
+
+if sidebar
+  @import "_partial/sidebar"

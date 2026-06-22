@@ -1,0 +1,45 @@
+// ===============
+// Telescopium Mobile Navigation
+// ===============
+
+// Hidden by default — only revealed on mobile when toggled
+#mobile-nav
+  display: none
+
+@media mq-mobile
+  #mobile-nav
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: mobile-nav-width
+    height: 100%
+    background: linear-gradient(180deg, #0C1019, #080B14)
+    border-right: 1px solid rgba(255, 255, 255, 0.06)
+    padding-top: 20px
+    box-shadow: 8px 0 48px rgba(0, 0, 0, 0.4)
+
+  .mobile-nav-header
+    padding: 16px 20px 24px
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06)
+    margin-bottom: 12px
+
+  .mobile-nav-brand
+    color: #F8FAFC
+    font-size: 16px
+    font-weight: 600
+    letter-spacing: 2.5px
+
+@media mq-mobile
+  .mobile-nav-link
+    display: block
+    color: #94A3B8
+    text-decoration: none
+    padding: 14px 20px
+    font-size: 15px
+    font-weight: 400
+    letter-spacing: 0.3px
+    transition: color 0.2s ease, background 0.2s ease
+    &:hover
+      color: #F8FAFC
+      background: rgba(255, 255, 255, 0.04)

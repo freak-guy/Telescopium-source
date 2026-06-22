@@ -1,0 +1,76 @@
+# ===============
+# Header
+# ===============
+# Navigation menu
+menu:
+  Home: /
+  Blog: /archives
+  Research: /archives
+  Tools: https://tools.telescopium.top
+  AI: /archives
+  About: /about
+# RSS link
+rss: /atom.xml
+# Path of title banner image of page top
+banner: ""
+# Subtitle of page top
+subtitle: "Observe · Think · Build"
+# Header links with icon, specified links will appear at the top right corner of the page
+links:
+  github: https://github.com/
+
+# ===============
+# Content
+# ===============
+excerpt_link: Read More
+fancybox: true
+
+# ===============
+# Footer
+# ===============
+copyright: |-
+  Telescopium © 2026<br>
+  Medicine · Research · AI
+
+# ===============
+# Sidebar
+# ===============
+sidebar: right
+widgets:
+- category
+- tag
+- archive
+- recent_posts
+
+# ===============
+# Widget behavior
+# ===============
+archive_type: 'monthly'
+show_count: true
+recent_posts_limits: 5
+
+# ===============
+# Miscellaneous
+# ===============
+google_analytics:
+gauges_analytics:
+favicon: /favicon.png
+twitter:
+fb_admins:
+fb_app_id:
+
+# ===============
+# Comment system
+# ===============
+disqus_shortname:
+valine:
+  enable: false
+  appId:
+  appKey:
+  notify: false
+  verify: false
+  pageSize: 10
+  avatar: mm
+  lang: zh-cn
+  placeholder: Just go go
+  guest_info: nick,mail,link
