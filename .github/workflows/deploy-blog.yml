@@ -34,7 +34,7 @@ jobs:
 
       - name: Deploy to server
         env:
-          BLOG_SSH_KEY: ${{ secrets.BLOG_SSH_KEY }}
+          BLOG_SSH_KEY: ${{ secrets.BLOG }}
         run: |
           set -euo pipefail
 
@@ -44,7 +44,7 @@ jobs:
           DEPLOY_PATH="/var/www/blog/"
 
           if [ -z "${BLOG_SSH_KEY:-}" ]; then
-            echo "❌ BLOG_SSH_KEY is empty"
+            echo "❌ BLOG secret is empty"
             exit 1
           fi
 
