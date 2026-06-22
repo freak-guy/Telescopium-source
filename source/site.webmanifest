@@ -1,0 +1,19 @@
+{
+  "name": "TELESCOPIUM",
+  "short_name": "Telescopium",
+  "theme_color": "#080B14",
+  "background_color": "#080B14",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/assets/icons/site-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

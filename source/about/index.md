@@ -4,6 +4,8 @@ date: 2026-06-22
 layout: page
 ---
 
+<img src="/assets/brand/telescopium-logo-banner.png" alt="Telescopium" class="about-banner" style="max-width:100%;height:auto;max-height:180px;display:block;margin:0 auto 32px;">
+
 ## Telescopium
 
 **Medicine · Research · AI**
@@ -35,3 +37,7 @@ AI 应用、效率工具与技术实践。
 Telescopium 源自拉丁语 *telescopium*，意为望远镜。它指向一种姿态——观察、思考、而后构建。正如望远镜将遥远的光汇聚成清晰的图像，这个站点将散落的笔记与想法汇聚成可追溯的知识脉络。
 
 **Observe · Think · Build**
+
+---
+
+<img src="/assets/brand/telescopium-mark.png" alt="Telescopium Mark" class="about-mark" style="max-width:120px;height:auto;display:block;margin:40px auto 0;opacity:0.8;">
