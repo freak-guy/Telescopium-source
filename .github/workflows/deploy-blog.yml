@@ -1,10 +1,10 @@
 name: Deploy Blog
 
-# 当 main 分支有 push 时自动构建并部署
 on:
   push:
-    branches: [main]
-  workflow_dispatch:  # 支持手动触发
+    branches:
+      - main
+  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -21,25 +21,50 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 'lts/*'
-          cache: 'npm'
+          node-version: 24
+          cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Hexo clean
-        run: npx hexo clean
+      - name: Build Hexo
+        run: |
+          npx hexo clean
+          npx hexo generate
 
-      - name: Hexo generate
-        run: npx hexo generate
+      - name: Deploy to server
+        env:
+          BLOG_SSH_HOST: ${{ secrets.BLOG_SSH_HOST }}
+          BLOG_SSH_USER: ${{ secrets.BLOG_SSH_USER }}
+          BLOG_SSH_PORT: ${{ secrets.BLOG_SSH_PORT }}
+          BLOG_SSH_KEY: ${{ secrets.BLOG_SSH_KEY }}
+        run: |
+          set -euo pipefail
 
-      - name: Deploy to server via rsync
-        uses: burnett01/rsync-deployments@7.0.1
-        with:
-          switches: -avz --delete
-          path: public/
-          remote_path: /var/www/blog/
-          remote_host: ${{ secrets.BLOG_SSH_HOST }}
-          remote_user: ${{ secrets.BLOG_SSH_USER }}
-          remote_port: ${{ secrets.BLOG_SSH_PORT }}
-          remote_key: ${{ secrets.BLOG_SSH_KEY }}
+          if [ -z "${BLOG_SSH_HOST:-}" ]; then
+            echo "❌ BLOG_SSH_HOST is empty"
+            exit 1
+          fi
+
+          if [ -z "${BLOG_SSH_USER:-}" ]; then
+            echo "❌ BLOG_SSH_USER is empty"
+            exit 1
+          fi
+
+          if [ -z "${BLOG_SSH_KEY:-}" ]; then
+            echo "❌ BLOG_SSH_KEY is empty"
+            exit 1
+          fi
+
+          PORT="${BLOG_SSH_PORT:-22}"
+
+          mkdir -p ~/.ssh
+          printf '%s\n' "$BLOG_SSH_KEY" > ~/.ssh/blog_deploy_key
+          chmod 600 ~/.ssh/blog_deploy_key
+
+          ssh-keyscan -p "$PORT" "$BLOG_SSH_HOST" >> ~/.ssh/known_hosts
+
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/blog_deploy_key -p $PORT" \
+            public/ \
+            "$BLOG_SSH_USER@$BLOG_SSH_HOST:/var/www/blog/"
